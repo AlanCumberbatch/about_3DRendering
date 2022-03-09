@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function main() {
+      const canvas = document.getElementById("rennderBox");
+
+      const gl = canvas.getContext("webgl");
+
+      if (!gl) {
+        alert("Unable to initialize WebGL. Your browser or machine may not support it.");
+        return;
+      }
+
+      gl.clearColor(0.0, 0.0, 0.0, 1.0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+
+      console.log("canvas.PutPixel", canvas.PutPixel)
+      //canvas.PutPixel();// Everything is in it.
+
+      // code in "Rendering our First Spheres"
+      // let O = (0, 0, 0) //❶Place the camera and the viewport as desired
+      // for (x > -Cw / 2 && x < Cw / 2) {
+      //   for y = -Ch / 2 to Ch / 2{ // For each pixel on the canvas
+      //     let D = CanvasTpViewport(x, y) // ❷Determine which square on the viewport corresponds to this pixel
+      //     let color = TraceRay(O, D, 1, inf) // ❸Determine the color seen through that square
+      //     canvas.PutPixel(x, y, color) // ❹Paint the pixel with that color
+      //   }
+      // }
+
+      // function CanvasTpViewport(x, y) {
+      //   return (x * Vw / Cw, y * Vh / Ch, d)
+      // }
+
+      // function TraceRay(O, D, t_min, t_max) {
+      //   // args:
+      //   // O represents the origin of the ray; although we’re tracing rays from the camera, which is placed at the origin, this won’t necessarily be the case in later stages, so it has to be a parameter.
+      //   // The same applies to t_min and t_max.
+      //   let closest_t = inf;
+      //   let closest_sphere = null;
+      //   for (let sphere in scene.spheres) {
+      //     var [t1, t2] = IntersectRaySphere(O, D, sphere); //  "IntersectRaySphere"  just solves the quadratic equation.
+      //     if ((t1 > t_min && t1 < t_max) || t1 < closest_t) {
+      //       closest_t = t1;
+      //       closest_sphere = sphere;
+      //     }
+      //     if ((t2 > t_min && t2 < t_max) || t2 < closest_t) {
+      //       // if( t2 in [t_min, t_max] and t1 < closest_t {
+      //       closest_t = t2;
+      //       closest_sphere = sphere;
+      //     }
+      //   }
+      //   if (closest_sphere == null) {
+      //     return BACKGROUND_COLOR // " -❶ "
+      //   }
+
+      //   return closest_sphere.color
+      // }
+
+      // function IntersectRaySphere(O, D, sphere) {
+      //   let r = sphere.radius
+      //   let CO = O - sphere.center
+
+      //   let a = dot(D, D)
+      //   let b = 2 * dot(CO, D)
+      //   let c = dot(CO, CO) - r * r
+
+      //   let discriminant = b * b - 4 * a * c
+      //   if (discriminant < 0) {
+      //     return inf, inf
+      //   }
+
+      //   let t1 = (-b + sqrt(discriminant)) / (2 * a)
+      //   let t2 = (-b - sqrt(discriminant)) / (2 * a)
+
+      //   return [t1, t2]
+      // }
+
+      // viewport_size = 1 * 1
+      // projection_palne_d = 1
+      // sphere {
+      //   center = (0, -1, 3)
+      //   radius = 1
+      //   color = (255, 0, 0) #RED
+      // }
+      // sphere {
+      //   center = (2, 0, 4)
+      //   radius = 1
+      //   color = (0, 0, 255) #BLUE
+      // }
+      // sphere {
+      //   center = (-2, 0, 4)
+      //   radius = 1
+      //   color = (0, 255, 0) #GREEN
+      // }
+
+    }
+
+    window.onload = main;
+
+  </script>
+</head>
+
+<body>
+  <!--
+    书中的 color depth is 3*3 bytes
+   -->
+  <canvas id="rennderBox"></canvas>
+</body>
+
+</html>
