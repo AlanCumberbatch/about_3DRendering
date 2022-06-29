@@ -24,3 +24,6 @@ Then know more basic things.<br/>
 ## Plan
 
   do [webGL](./about_webGL/README.md) stuff first
+  
+## blogs
+ [WebGL - Graphics Pipeline](https://www.tutorialspoint.com/webgl/webgl_graphics_pipeline.htm)
